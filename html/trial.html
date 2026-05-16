@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>無料トライアルのご案内 | クラフトプラス サポート</title>
+    <link rel="icon" type="image/x-icon" href="../assets/favicon/favicon.ico">
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon/favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="../assets/favicon/android-chrome-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="../assets/favicon/android-chrome-512x512.png">
+    <style>
+        :root {
+            --primary-color: #00B050;
+            --text-color: #333;
+            --bg-color: #f9f9f9;
+            --card-bg: #ffffff;
+            --accent-bg: #e8f5e9;
+        }
+
+        body {
+            font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 0;
+        }
+
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        a:hover { opacity: 0.7; }
+
+        header {
+            background-color: var(--card-bg);
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .logo-img { height: 40px; margin-right: 10px; }
+
+        .nav-link { font-size: 0.9rem; color: #666; }
+
+        .hero {
+            background-color: #1a8f3a;
+            background-image:
+                linear-gradient(45deg, rgba(255,255,255,0.08) 25%, transparent 25%, transparent 75%, rgba(255,255,255,0.08) 75%),
+                linear-gradient(45deg, rgba(0,0,0,0.05) 25%, transparent 25%, transparent 75%, rgba(0,0,0,0.05) 75%);
+            background-size: 20px 20px;
+            background-position: 0 0, 10px 10px;
+            color: white;
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        .hero h1 { margin: 0 0 10px 0; font-size: 1.9rem; }
+        .hero p { font-size: 1.05rem; max-width: 700px; margin: 0 auto; opacity: 0.95; }
+
+        .breadcrumbs {
+            max-width: 860px;
+            margin: 20px auto 0;
+            padding: 0 20px;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .content-container {
+            max-width: 860px;
+            margin: 20px auto 80px;
+            padding: 0 20px;
+        }
+
+        section {
+            background: var(--card-bg);
+            border-radius: 8px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        h2 {
+            font-size: 1.35rem;
+            margin-top: 0;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #eee;
+            color: #222;
+        }
+
+        h3 {
+            font-size: 1.1rem;
+            margin-top: 22px;
+            margin-bottom: 10px;
+            color: #444;
+            border-left: 4px solid var(--primary-color);
+            padding-left: 10px;
+        }
+
+        p { margin-bottom: 1rem; }
+
+        .btn-link {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 5px;
+            margin: 8px 0 16px 0;
+            font-weight: bold;
+            font-size: 1rem;
+        }
+        .btn-link:hover { color: white; background-color: #008a3e; opacity: 1; }
+
+        .note {
+            font-size: 0.9rem;
+            color: #555;
+            background-color: #f5f5f5;
+            padding: 12px 15px;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+
+        /* トライアル教材カード */
+        .world-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 16px;
+            margin-top: 16px;
+        }
+
+        .world-card {
+            border: 2px solid var(--primary-color);
+            border-radius: 8px;
+            padding: 18px;
+            background: white;
+        }
+
+        .world-card .world-tag {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            font-size: 0.75rem;
+            font-weight: bold;
+            padding: 2px 8px;
+            border-radius: 10px;
+            margin-bottom: 8px;
+        }
+
+        .world-card .world-name {
+            font-size: 1rem;
+            font-weight: bold;
+            margin: 0 0 6px 0;
+            color: #222;
+        }
+
+        .world-card .world-desc {
+            font-size: 0.88rem;
+            color: #555;
+            margin: 0;
+        }
+
+        /* ステップリスト */
+        ol.steps {
+            counter-reset: step;
+            list-style: none;
+            padding: 0;
+        }
+        ol.steps li {
+            position: relative;
+            padding-left: 42px;
+            margin-bottom: 14px;
+        }
+        ol.steps li::before {
+            counter-increment: step;
+            content: counter(step);
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 30px;
+            height: 30px;
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            line-height: 30px;
+            border-radius: 50%;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+
+        /* 次のステップ */
+        .next-step-box {
+            background-color: var(--accent-bg);
+            border: 1px solid #c8e6c9;
+            border-radius: 8px;
+            padding: 25px;
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .next-step-box h3 {
+            border-left: none;
+            padding-left: 0;
+            color: #2e7d32;
+            margin-top: 0;
+        }
+
+        .btn-outline {
+            display: inline-block;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+            padding: 10px 22px;
+            border-radius: 5px;
+            font-weight: bold;
+            margin: 6px 8px;
+        }
+        .btn-outline:hover { background-color: var(--primary-color); color: white; opacity: 1; }
+
+        footer {
+            text-align: center;
+            padding: 40px;
+            background-color: #333;
+            color: white;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 600px) {
+            section { padding: 20px; }
+            .hero h1 { font-size: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo-area">
+            <a href="../index.html" style="display:flex; align-items:center; color:inherit;">
+                <img src="../assets/images/500-500_マークのみ_緑.png" alt="Craft Plus Logo" class="logo-img">
+                <span>クラフトプラス サポート</span>
+            </a>
+        </div>
+        <nav>
+            <a href="../index.html" class="nav-link">トップへ戻る</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>無料トライアルのご案内</h1>
+        <p>この度はクラフトプラスにご関心をお持ちいただき、ありがとうございます。<br>
+        このページでは、トライアル用教材のダウンロードから授業開始までの手順をご案内します。</p>
+    </section>
+
+    <div class="breadcrumbs">
+        <a href="../index.html">トップ</a> &gt; 無料トライアルのご案内
+    </div>
+
+    <div class="content-container">
+
+        <!-- STEP 1: 教材のダウンロード -->
+        <section>
+            <h2>STEP 1　トライアル用教材をダウンロード</h2>
+            <p>以下のGoogleドライブフォルダから、ワールドデータ（.mcworld）とPDF補助教材をダウンロードしてください。</p>
+
+            <a href="https://drive.google.com/drive/folders/1o95mthQokfwrbf5YqzqxsyGacdX_UFTO?usp=sharing" target="_blank" class="btn-link">トライアル用教材フォルダを開く ＞</a>
+
+            <div class="note">※ アクセスできない場合は、担当者よりご連絡いただいたメールアドレスでGoogleにログインしてからお試しください。</div>
+
+            <h3>収録ワールド（3本）</h3>
+            <div class="world-grid">
+                <div class="world-card">
+                    <span class="world-tag">C-5</span>
+                    <p class="world-name">水の都①</p>
+                    <p class="world-desc">プログラミングの基本「繰り返し（ループ）」を学ぶワールドです。</p>
+                </div>
+                <div class="world-card">
+                    <span class="world-tag">E-5</span>
+                    <p class="world-name">古代都市①</p>
+                    <p class="world-desc">「条件分岐（if文）」の考え方を体験しながら学ぶワールドです。</p>
+                </div>
+                <div class="world-card">
+                    <span class="world-tag">J-3</span>
+                    <p class="world-name">和の国</p>
+                    <p class="world-desc">「関数」の概念を扱う、少し応用的なワールドです。</p>
+                </div>
+            </div>
+
+            <div class="note" style="margin-top:16px;">
+                ※ フォルダ内のPDFファイルは授業補助テキストです。印刷してご活用いただけますが、なくても授業は進められます。
+            </div>
+        </section>
+
+        <!-- STEP 2: ワールドの取り込み -->
+        <section>
+            <h2>STEP 2　Minecraft Educationにワールドを取り込む</h2>
+            <p>ダウンロードした <code style="background:#f4f4f4; padding:2px 6px; border-radius:4px; color:#d63384;">.mcworld</code> ファイルを、Minecraft Education Editionにインポートしてください。</p>
+
+            <ol class="steps">
+                <li>ダウンロードした <code style="background:#f4f4f4; padding:2px 6px; border-radius:4px; color:#d63384;">.mcworld</code> ファイルをダブルクリック（またはMinecraft Educationを起動してインポートを選択）</li>
+                <li>「インポート」が完了したら、「作成した世界」一覧に追加されます</li>
+                <li>使用するワールドを選択して「プレイ」を押せば開始できます</li>
+            </ol>
+
+            <div class="note">
+                ※ Minecraft Education Editionのインストール方法・アカウント作成については、<a href="guide.html"><strong>スタートガイド</strong></a>をご覧ください。
+            </div>
+        </section>
+
+        <!-- STEP 3: 授業の進め方 -->
+        <section>
+            <h2>STEP 3　授業の進め方</h2>
+            <p>基本は<strong>生徒が1人でワールドを進める自学自習スタイル</strong>です。講師は必要に応じて声掛けをしてください。</p>
+            <ul>
+                <li>ワールド内の指示に従ってプログラムを組み、エージェント（ロボット）を動かしながら課題をクリアします</li>
+                <li>授業を中断する場合は、そのままワールドを閉じてください。次回ログイン時に続きから再開できます</li>
+                <li>1つのワールドの完了目安は <strong>30〜60分程度</strong>です（習熟度により異なります）</li>
+            </ul>
+
+            <div class="note">
+                ※ 詳しい操作方法・コマンド一覧は <a href="guide.html">スタートガイド</a> / <a href="commands.html">コマンド一覧</a> をご参照ください。
+            </div>
+        </section>
+
+        <!-- トラブル・問い合わせ -->
+        <section>
+            <h2>お困りの際は</h2>
+            <p>トライアル期間中のご質問・不具合はいつでもお気軽にご連絡ください。</p>
+            <ul>
+                <li><strong>ワールドの操作・バグ</strong>：<a href="trouble.html">トラブル対応マニュアル</a> をまずご確認ください</li>
+                <li><strong>不具合の報告</strong>：<a href="https://docs.google.com/forms/d/e/1FAIpQLSdtqoeTxgz8TYfJ64EMKQMjzc7zMxk7BRdeSH_49dEf7VqBdg/viewform?usp=header" target="_blank">バグ・不具合報告フォーム</a></li>
+                <li><strong>その他のご質問</strong>：<a href="https://docs.google.com/forms/d/e/1FAIpQLScLtgEMQA6dt01u-anSSbHF6BgqVYT6ehr5jj7oOuJMhDT3xQ/viewform?usp=header" target="_blank">お問い合わせフォーム</a>、またはご連絡いただいたメールアドレスへ直接ご返信ください</li>
+            </ul>
+        </section>
+
+        <!-- 次のステップ -->
+        <div class="next-step-box">
+            <h3>トライアル後の正式導入について</h3>
+            <p>教材・操作感をご確認いただいたうえで、導入をご検討の場合はお気軽にご連絡ください。<br>
+            ご契約の流れや料金については担当者よりご案内いたします。</p>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLScLtgEMQA6dt01u-anSSbHF6BgqVYT6ehr5jj7oOuJMhDT3xQ/viewform?usp=header" target="_blank" class="btn-link">正式導入のお問い合わせ ＞</a>
+            <br>
+            <a href="flow.html" class="btn-outline">ご契約までの流れを見る</a>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Craft Plus Support. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
